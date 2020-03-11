@@ -1,0 +1,2 @@
+add_lunch_combo cm_goldenve3g-eng
+add_lunch_combo cm_goldenve3g-userdebug
