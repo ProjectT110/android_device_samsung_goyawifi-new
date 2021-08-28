@@ -19,30 +19,28 @@ TARGET_BOOTLOADER_BOARD_NAME := PXA986
 BOARD_USES_MRVL_HARDWARE := true
 MRVL_ION := true
 
-TARGET_SPECIFIC_HEADER_PATH := device/samsung/goldenve3g/include
+TARGET_SPECIFIC_HEADER_PATH := device/samsung/goyawifi/include
 
 # Flags
 COMMON_GLOBAL_CFLAGS += -DMRVL_HARDWARE
-COMMON_GLOBAL_CFLAGS += -DNO_RGBX_8888
 TARGET_GLOBAL_CFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
 
-# Boot image
-TARGET_KERNEL_SOURCE := kernel/samsung/goldenve3g
-TARGET_KERNEL_CONFIG := cyanogenmod_goldenve3g_defconfig
-BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000
+# Kernel
+TARGET_KERNEL_SOURCE  := kernel/samsung/goyawifi
+TARGET_KERNEL_CONFIG  := goyawifi_defconfig
+BOARD_KERNEL_CMDLINE  := androidboot.selinux=permissive
+BOARD_KERNEL_BASE     := 0x10000000
+BOARD_MKBOOTIMG_ARGS  := --ramdisk_offset 0x01000000
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_KERNEL_BASE := 0x10000000
 
 # Partitions
+TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1594884096
-BOARD_CACHEIMAGE_PARTITION_SIZE := 360710144
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 5509218304
-BOARD_FLASH_BLOCK_SIZE := 4096
-TARGET_USERIMAGES_USE_EXT4 := true
+BOARD_FLASH_BLOCK_SIZE := 131072
 
 # Init
 TARGET_PROVIDES_INIT := true
@@ -50,7 +48,7 @@ TARGET_PROVIDES_INIT_TARGET_RC := true
 
 #Bluetooth
 BOARD_HAVE_BLUETOOTH := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/goldenve3g/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/goyawifi/bluetooth
 BOARD_HAVE_BLUETOOTH_MRVL := true
 MRVL_WIRELESS_DAEMON_API := true
 
@@ -63,7 +61,7 @@ COMMON_GLOBAL_CFLAGS += -DMR0_AUDIO_BLOB -DMR1_AUDIO_BLOB
 ENABLE_WEBGL := true
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/samsung/goldenve3g/rootdir/fstab.pxa988
+TARGET_RECOVERY_FSTAB := device/samsung/goyawifi/rootdir/fstab.pxa988
 RECOVERY_FSTAB_VERSION := 2
 BOARD_RECOVERY_SWIPE := true
 BOARD_USES_MMCUTILS := true
@@ -96,7 +94,7 @@ SENSORS_NEED_SETRATE_ON_ENABLE := true
 
 # SElinux
 BOARD_SEPOLICY_DIRS += \
-    device/samsung/goldenve3g/sepolicy
+    device/samsung/goyawifi/sepolicy
 
 BOARD_SEPOLICY_UNION += \
     file_contexts \
@@ -116,7 +114,7 @@ BOARD_SEPOLICY_UNION += \
 VSYNC_EVENT_PHASE_OFFSET_NS := 0
 BOARD_USE_BGRA_8888 := true
 USE_OPENGL_RENDERER := true
-BOARD_EGL_CFG := device/samsung/goldenve3g/configs/egl.cfg
+BOARD_EGL_CFG := device/samsung/goyawifi/configs/egl.cfg
 
 # flags
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3

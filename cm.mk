@@ -14,32 +14,28 @@
 # limitations under the License.
 #
 
-# Inherit CM common GSM/Phone stuff.
-$(call inherit-product, vendor/cm/config/gsm.mk)
-
 # Release name
-PRODUCT_RELEASE_NAME := goldenve3g
+PRODUCT_RELEASE_NAME := goyawifi
 
 # Boot animation
-TARGET_SCREEN_HEIGHT := 800
-TARGET_SCREEN_WIDTH := 480
+TARGET_SCREEN_WIDTH := 1024
+TARGET_SCREEN_HEIGHT := 600
+TARGET_BOOTANIMATION_HALF_RES := true
 
 # Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+$(call inherit-product, vendor/cm/config/common_full_tablet_wifionly.mk)
 
 # Inherit device configuration
-$(call inherit-product, device/samsung/goldenve3g/goldenve3g.mk)
+$(call inherit-product, device/samsung/goyawifi/device_goyawifi.mk)
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := goldenve3g
-PRODUCT_NAME := cm_goldenve3g
+PRODUCT_DEVICE := goyawifi
+PRODUCT_NAME := cm_goyawifi
 PRODUCT_BRAND := Samsung
-PRODUCT_MODEL := GT-I8200N
+PRODUCT_MODEL := SM-T110
 PRODUCT_MANUFACTURER := samsung
 
 #Set build fingerprint / ID / Prduct Name ect.
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=goldenve3gxx \
-    TARGET_DEVICE=goldenve3g \
-    PRIVATE_BUILD_DESC="goldenve3gxx-user 4.2.2 JDQ39 I8200NXXUAOC1 release-keys" \
-    BUILD_FINGERPRINT="samsung/goldenve3gxx/goldenve3g:4.2.2/JDQ39/I8200NXXUAOC1:user/release-keys"
+    PRODUCT_NAME=goyawifi \
+    TARGET_DEVICE=goyawifi \

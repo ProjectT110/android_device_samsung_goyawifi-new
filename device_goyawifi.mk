@@ -16,15 +16,18 @@
  
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
-$(call inherit-product-if-exists, vendor/samsung/goldenve3g/goldenve3g-vendor.mk)
+$(call inherit-product-if-exists, vendor/samsung/goyawifi/goyawifi-vendor.mk)
+
+# Device goyawifi
+LOCAL_PATH := device/samsung/goyawifi
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
-# This device is hdpi.
-PRODUCT_AAPT_CONFIG := normal hdpi
-PRODUCT_AAPT_PREF_CONFIG := hdpi
-PRODUCT_LOCALES += hdpi
+# This device is mdpi.
+PRODUCT_AAPT_CONFIG := normal mdpi
+PRODUCT_AAPT_PREF_CONFIG := mdpi
+PRODUCT_LOCALES += mdpi
 
 # System Properties for USB
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -78,25 +81,24 @@ PRODUCT_COPY_FILES += \
 
 # sensor
 PRODUCT_COPY_FILES += \
-	device/samsung/goldenve3g/configs/sensor_config.xml:system/etc/sensor_config.xml \
-	device/samsung/goldenve3g/configs/param.dat:system/etc/param.dat 
+	$(LOCAL_PATH)/configs/sensor_config.xml:system/etc/sensor_config.xml \
 
  # GPS
 PRODUCT_COPY_FILES += \
-    device/samsung/goldenve3g/configs/gps.conf:system/etc/gps.conf \
-	device/samsung/goldenve3g/configs/mrvl_agps_default.conf:system/etc/mrvl_agps_default.conf \
-    device/samsung/goldenve3g/configs/mrvl_gps_platform.conf:system/etc/mrvl_gps_platform.conf 
+    $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf \
+	$(LOCAL_PATH)/configs/mrvl_agps_default.conf:system/etc/mrvl_agps_default.conf \
+    $(LOCAL_PATH)/configs/mrvl_gps_platform.conf:system/etc/mrvl_gps_platform.conf 
 
 # Media configs
 PRODUCT_COPY_FILES += \
-    device/samsung/goldenve3g/configs/media_codecs.xml:system/etc/media_codecs.xml \
-    device/samsung/goldenve3g/configs/media_profiles.xml:system/etc/media_profiles.xml
+    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
+    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
 
  # Audio configs
 PRODUCT_COPY_FILES += \
-    device/samsung/goldenve3g/configs/asound.conf:system/etc/asound.conf \
-	device/samsung/goldenve3g/configs/audio_effects.conf:system/etc/audio_effects.conf \
-    device/samsung/goldenve3g/configs/audio_policy.conf:system/etc/audio_policy.conf
+    $(LOCAL_PATH)/configs/asound.conf:system/etc/asound.conf \
+	$(LOCAL_PATH)/configs/audio_effects.conf:system/etc/audio_effects.conf \
+    $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
 
 # Misc
 PRODUCT_PACKAGES += \
@@ -136,8 +138,9 @@ PRODUCT_PACKAGES += \
     libwpa_client 
 
 # Use the Dalvik VM specific for devices with 1024 MB of RAM
-$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
+$(call inherit-product, frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk)
+$(call inherit-product-if-exists, frameworks/native/build/tablet-7in-hdpi-1024-hwui-memory.mk)
 $(call inherit-product-if-exists, vendor/marvell/generic/sd8787/FwImage/sd8787fw.mk)
 $(call inherit-product-if-exists, vendor/marvell/generic/sd8787/sd8787.mk)
 $(call inherit-product-if-exists, vendor/marvell/generic/sd8787/sd8787_modules.mk)

@@ -1,2 +1,2 @@
-add_lunch_combo cm_goldenve3g-eng
-add_lunch_combo cm_goldenve3g-userdebug
+add_lunch_combo cm_goyawifi-eng
+add_lunch_combo cm_goyawifi-userdebug
