@@ -102,7 +102,6 @@ PRODUCT_COPY_FILES += \
 
 # Misc
 PRODUCT_PACKAGES += \
-    Torch \
     com.android.future.usb.accessory 
 
 # Graphics
