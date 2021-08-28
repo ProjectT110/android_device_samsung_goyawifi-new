@@ -56,8 +56,8 @@ etc/firmware/mrvl/bt_cal_data.conf
 etc/firmware/mrvl/bt_init_cfg.conf
 etc/firmware/mrvl/cal_data.conf
 etc/firmware/mrvl/reg_alpha2
-etc/firmware/mrvl/sd8787_uapsta.bin
-etc/firmware/mrvl/SDI08777_SDIO_SDIO.bin
+etc/firmware/mrvl/sd8777_uapsta.bin
+etc/firmware/mrvl/SDIO8777_SDIO_SDIO.bin
 etc/rom.bin
 etc/sensor/sensord_cfg_axis
 etc/tel/Boerne_DIAG.mdb.txt
@@ -69,7 +69,7 @@ etc/tel/diag_uart.cfg
 etc/tel/diag_udp.cfg
 etc/tel/diag_usb.cfg
 etc/tel/ttc/COMCfg.csv
-etc/tel/kunlum/LyraConfig_T7.nvm
+etc/tel/kunlun/LyraConfig_T7.nvm
 etc/tel/nvm_uncheck_file.cfg
 etc/tel/ramdump_loglist
 etc/tel/ttc/audio_DualMic.nvm
@@ -101,7 +101,7 @@ lib/hw/gralloc.mrvl.so
 lib/hw/hwcomposer.mrvl.so
 lib/hw/power.mrvl.so
 lib/hw/sensors.mrvl.so
-lib/lib/libgpucsc.so
+lib/libgpucsc.so
 lib/libGAL.so
 lib/libGLESv2SC.so
 lib/libHWComposerGC.so
