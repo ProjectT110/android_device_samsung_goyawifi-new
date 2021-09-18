@@ -35,7 +35,7 @@ PRODUCT_BRAND := Samsung
 PRODUCT_MODEL := SM-T110
 PRODUCT_MANUFACTURER := samsung
 
-#Set build fingerprint / ID / Prduct Name ect.
+# Set build fingerprint / ID / Product Name etc.
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=goyawifi \
     TARGET_DEVICE=goyawifi \
