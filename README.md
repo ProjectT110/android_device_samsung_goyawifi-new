@@ -1,4 +1,4 @@
-# android_device_samsung_goyawifi <br><br> Device tree for SM-T110 *(goyawifi)*.
+# android_device_samsung_goyawifi <br><br> CyanogenMod device tree for SM-T110 *(goyawifi)*.
 
 ## Credits
 <a href="https://github.com/zvihell" title="zvihell on GitHub">zvihell</a>
