@@ -18,9 +18,6 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 $(call inherit-product-if-exists, vendor/samsung/goyawifi/goyawifi-vendor.mk)
 
-# Device goyawifi
-LOCAL_PATH := device/samsung/goyawifi
-
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
@@ -48,7 +45,7 @@ PRODUCT_COPY_FILES += \
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
 
- # Charger
+# Charger
 PRODUCT_PACKAGES += \
     charger \
     charger_res_images
@@ -81,27 +78,29 @@ PRODUCT_COPY_FILES += \
 
 # sensor
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/configs/sensor_config.xml:system/etc/sensor_config.xml \
+	device/samsung/goyawifi/configs/sensor_config.xml:system/etc/sensor_config.xml \
+	device/samsung/goyawifi/configs/param.dat:system/etc/param.dat 
 
- # GPS
+# GPS
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf \
-	$(LOCAL_PATH)/configs/mrvl_agps_default.conf:system/etc/mrvl_agps_default.conf \
-    $(LOCAL_PATH)/configs/mrvl_gps_platform.conf:system/etc/mrvl_gps_platform.conf 
+    device/samsung/goyawifi/configs/gps.conf:system/etc/gps.conf \
+	device/samsung/goyawifi/configs/mrvl_agps_default.conf:system/etc/mrvl_agps_default.conf \
+    device/samsung/goyawifi/configs/mrvl_gps_platform.conf:system/etc/mrvl_gps_platform.conf 
 
 # Media configs
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
-    $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
+    device/samsung/goyawifi/configs/media_codecs.xml:system/etc/media_codecs.xml \
+    device/samsung/goyawifi/configs/media_profiles.xml:system/etc/media_profiles.xml
 
  # Audio configs
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/asound.conf:system/etc/asound.conf \
-	$(LOCAL_PATH)/configs/audio_effects.conf:system/etc/audio_effects.conf \
-    $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
+    device/samsung/goyawifi/configs/asound.conf:system/etc/asound.conf \
+	device/samsung/goyawifi/configs/audio_effects.conf:system/etc/audio_effects.conf \
+    device/samsung/goyawifi/configs/audio_policy.conf:system/etc/audio_policy.conf
 
 # Misc
 PRODUCT_PACKAGES += \
+    Torch \
     com.android.future.usb.accessory 
 
 # Graphics
@@ -140,6 +139,6 @@ PRODUCT_PACKAGES += \
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 $(call inherit-product, frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk)
 $(call inherit-product-if-exists, frameworks/native/build/tablet-7in-hdpi-1024-hwui-memory.mk)
-$(call inherit-product-if-exists, vendor/marvell/generic/sd8787/FwImage/sd8787fw.mk)
-$(call inherit-product-if-exists, vendor/marvell/generic/sd8787/sd8787.mk)
-$(call inherit-product-if-exists, vendor/marvell/generic/sd8787/sd8787_modules.mk)
+$(call inherit-product-if-exists, vendor/marvell/generic/sd8777/FwImage/sd8777fw.mk)
+$(call inherit-product-if-exists, vendor/marvell/generic/sd8777/sd8777.mk)
+$(call inherit-product-if-exists, vendor/marvell/generic/sd8777/sd8777_modules.mk)

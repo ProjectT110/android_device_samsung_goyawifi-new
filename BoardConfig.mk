@@ -23,10 +23,11 @@ TARGET_SPECIFIC_HEADER_PATH := device/samsung/goyawifi/include
 
 # Flags
 COMMON_GLOBAL_CFLAGS += -DMRVL_HARDWARE
+COMMON_GLOBAL_CFLAGS += -DNO_RGBX_8888
 TARGET_GLOBAL_CFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
 TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
 
-# Kernel
+# Boot image
 TARGET_KERNEL_SOURCE  := kernel/samsung/goyawifi
 TARGET_KERNEL_CONFIG  := goyawifi_defconfig
 BOARD_KERNEL_CMDLINE  := androidboot.selinux=permissive
@@ -35,18 +36,19 @@ BOARD_MKBOOTIMG_ARGS  := --ramdisk_offset 0x01000000
 BOARD_KERNEL_PAGESIZE := 2048
 
 # Partitions
-TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1594884096
+BOARD_CACHEIMAGE_PARTITION_SIZE := 360710144
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 5509218304
-BOARD_FLASH_BLOCK_SIZE := 131072
+BOARD_FLASH_BLOCK_SIZE := 4096
+TARGET_USERIMAGES_USE_EXT4 := true
 
 # Init
 TARGET_PROVIDES_INIT := true
 TARGET_PROVIDES_INIT_TARGET_RC := true
 
-#Bluetooth
+# Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/goyawifi/bluetooth
 BOARD_HAVE_BLUETOOTH_MRVL := true
@@ -57,7 +59,7 @@ BOARD_USES_ALSA_AUDIO := true
 BOARD_HAVE_PRE_KITKAT_AUDIO_BLOB := true
 COMMON_GLOBAL_CFLAGS += -DMR0_AUDIO_BLOB -DMR1_AUDIO_BLOB
 
-#Enable WEBGL in WebKit
+# Enable WEBGL in WebKit
 ENABLE_WEBGL := true
 
 # Recovery
@@ -69,13 +71,13 @@ BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_UMS_LUNFILE := "/sys/class/android_usb/f_mass_storage/lun/file"
 
-# Vold
+# VOLD
 BOARD_VOLD_MAX_PARTITIONS := 17
 BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 BOARD_VOLD_DISC_HAS_MULTIPLE_MAJORS := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/f_mass_storage/lun%d/file"
 
-# Wi-fi
+# Wi-Fi
 BOARD_HAVE_MARVELL_WIFI := true
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
 WPA_SUPPLICANT_VERSION := VER_0_8_X
@@ -84,9 +86,9 @@ BOARD_HOSTAPD_DRIVER := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_mrvl
 BOARD_WLAN_DEVICE := mrvl
 WIFI_DRIVER_FW_PATH_PARAM := "/proc/mwlan/config"
-WIFI_DRIVER_FW_PATH_STA := "/system/etc/firmware/mrvl/sd8787_uapsta.bin"
-WIFI_DRIVER_FW_PATH_AP := "/system/etc/firmware/mrvl/sd8787_uapsta.bin"
-WIFI_DRIVER_FW_PATH_P2P := "/system/etc/firmware/mrvl/sd8787_uapsta.bin"
+WIFI_DRIVER_FW_PATH_STA := "/system/etc/firmware/mrvl/sd8777_uapsta.bin"
+WIFI_DRIVER_FW_PATH_AP := "/system/etc/firmware/mrvl/sd8777_uapsta.bin"
+WIFI_DRIVER_FW_PATH_P2P := "/system/etc/firmware/mrvl/sd8777_uapsta.bin"
 CONFIG_CTRL_IFACE := true
 
 #Sensors 

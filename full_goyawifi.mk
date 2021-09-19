@@ -1,5 +1,4 @@
-#
-# Copyright (C) 2013 The CyanogenMod Project
+# Copyright (C) 2013 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,7 +11,15 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
-PRODUCT_MAKEFILES := \
-	$(LOCAL_DIR)/full_goyawifi.mk
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
+# Inherit from CM configuration
+$(call inherit-product, device/samsung/goyawifi/cm.mk)
+
+# Set those variables here to overwrite the inherited values.
+PRODUCT_NAME := full_goyawifi
+PRODUCT_DEVICE := goyawifi
+PRODUCT_BRAND := samsung
+PRODUCT_MANUFACTURER := samsung
+PRODUCT_MODEL := SM-T110
